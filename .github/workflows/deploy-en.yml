@@ -9,8 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: start
+        env:
+            TZ: 'Asia/Tokyo'
         run: echo "GitHub Actions Start($(date '+%Y-%m-%d %H:%M:%S'))"
       - name: wait
         run: sleep 30
       - name: end
+        env:
+            TZ: 'Asia/Tokyo'
         run: echo "GitHub Actions End($(date '+%Y-%m-%d %H:%M:%S'))"
+
