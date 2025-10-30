@@ -1,0 +1,16 @@
+name: Deploy En on Comment with Hashtag
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: start
+        run: echo "GitHub Actions Start($(date '+%Y-%m-%d %H:%M:%S'))"
+      - name: wait
+        run: sleep 30
+      - name: end
+        run: echo "GitHub Actions End($(date '+%Y-%m-%d %H:%M:%S'))"
