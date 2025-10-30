@@ -1,0 +1,24 @@
+name: Deploy All on Comment with Hashtag
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+concurrency:
+  group: document-prod
+  cancel-in-progress: false
+
+jobs:
+  test01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: start
+        env:
+            TZ: 'Asia/Tokyo'
+        run: echo "GitHub Actions Start($(date '+%Y-%m-%d %H:%M:%S'))"
+      - name: wait
+        run: sleep 30
+      - name: end
+        env:
+            TZ: 'Asia/Tokyo'
+        run: echo "GitHub Actions End($(date '+%Y-%m-%d %H:%M:%S'))"
