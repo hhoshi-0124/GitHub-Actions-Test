@@ -1,0 +1,17 @@
+name: Deploy on Comment with Hashtag
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: start
+        run: echo "GitHub Actions Start"
+      - name: wait
+        run: sleep 30
+      - name: end
+        run: echo "GitHub Actions End"
+        
