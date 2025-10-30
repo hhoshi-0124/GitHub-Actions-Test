@@ -4,7 +4,7 @@ on:
   issue_comment:
     types: [created, edited]
 
-run-name: "国内版"
+run-name: "国内版(${{ format-dateTime(github.run_started_at, 'yyyy/MM/dd HH:mm:ss') }})"
     
 concurrency:
   group: document-prod
