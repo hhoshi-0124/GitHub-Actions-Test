@@ -4,6 +4,10 @@ on:
   issue_comment:
     types: [created]
 
+concurrency:
+  group: document-prod
+  cancel-in-progress: false
+
 jobs:
   test01:
     runs-on: ubuntu-latest
