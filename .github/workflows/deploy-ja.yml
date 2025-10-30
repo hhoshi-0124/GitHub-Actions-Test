@@ -1,4 +1,4 @@
-name: Deploy on Comment with Hashtag
+name: Deploy JA on Comment with Hashtag
 
 on:
   issue_comment:
