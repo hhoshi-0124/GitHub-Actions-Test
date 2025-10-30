@@ -3,6 +3,8 @@ name: Deploy Ja on Comment with Hashtag
 on:
   issue_comment:
     types: [created, edited]
+
+run-name: "国内版"
     
 concurrency:
   group: document-prod
