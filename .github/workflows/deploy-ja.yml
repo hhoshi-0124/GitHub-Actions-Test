@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: start
-        run: echo "GitHub Actions Start"
+        run: echo "GitHub Actions Start($((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')))"
       - name: wait
         run: sleep 30
       - name: end
-        run: echo "GitHub Actions End"
+        run: echo "GitHub Actions End($((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')))"
         
