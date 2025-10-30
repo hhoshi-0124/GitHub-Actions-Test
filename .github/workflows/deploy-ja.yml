@@ -2,7 +2,7 @@ name: Deploy Ja on Comment with Hashtag
 
 on:
   issue_comment:
-    types: [created]
+    types: [created, edited]
     
 concurrency:
   group: document-prod
