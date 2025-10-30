@@ -3,6 +3,10 @@ name: Deploy Ja on Comment with Hashtag
 on:
   issue_comment:
     types: [created]
+    
+concurrency:
+  group: document-prod
+  cancel-in-progress: false
 
 jobs:
   test01:
