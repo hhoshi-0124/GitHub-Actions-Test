@@ -9,10 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: start
-        run: Write-Host "GitHub Actions Start($((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')))"
-        shell: powershell
+        run: echo "GitHub Actions Start($(date '+%Y-%m-%d %H:%M:%S'))"
       - name: wait
         run: sleep 30
       - name: end
-        run: Write-Host "GitHub Actions End($((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')))"
-        shell: powershell
+        run: echo "GitHub Actions End($(date '+%Y-%m-%d %H:%M:%S'))"
+
