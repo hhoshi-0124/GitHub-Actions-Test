@@ -4,6 +4,8 @@ on:
   issue_comment:
     types: [created, edited]
 
+run-name: "海外版(${{ github.event.comment.created_at }})"
+
 concurrency:
   group: document-prod
   cancel-in-progress: false
