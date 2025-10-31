@@ -20,6 +20,7 @@ jobs:
         run: echo "GitHub Actions Start($(date '+%Y-%m-%d %H:%M:%S'))"
       - name: IP Address
         with:
+          azcliversion: 2.74.0
           inlineScript: |
               IP=$(curl -s https://checkip.amazonaws.com/)
               echo "IP Address:  $IP"
