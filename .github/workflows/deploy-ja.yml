@@ -16,6 +16,12 @@ jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub event
+        run: |
+          echo "github.event object:"
+          echo "${{ toJSON(github.event) }}"
+          echo "--- End of github.event object ---"
+          
       - name: start
         env:
             TZ: 'Asia/Tokyo'
