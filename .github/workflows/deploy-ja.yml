@@ -20,6 +20,7 @@ jobs:
         run: |
           printf "%s\n" "${{ toJson(github.event.repository) }}"
 
+
       - name: Create event JSON file
         run: |
          mkdir -p event_data
