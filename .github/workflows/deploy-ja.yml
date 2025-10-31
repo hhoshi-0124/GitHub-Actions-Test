@@ -16,6 +16,14 @@ jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Output of pull_request.title
+        run: |
+          echo "--- Start Debug Output ---"
+          echo "Value of github.event.pull_request.title is:"
+          printf "%s\n" "${{ github.event.pull_request.title }}"
+          echo "Value of toJson(github.event.pull_request.title) is:"
+          printf "%s\n" "${{ toJson(github.event.pull_request.title) }}"
+
       - name: Create event JSON file
         run: |
          mkdir -p event_data
