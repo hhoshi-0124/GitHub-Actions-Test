@@ -21,7 +21,7 @@ jobs:
       - name: IP Address
         run: |
           IP=$(curl -s https://checkip.amazonaws.com/)
-          echo "IP Address:  $IP"
+          echo "IP Address: $IP"
       - name: wait
         run: sleep 30
       - name: end
