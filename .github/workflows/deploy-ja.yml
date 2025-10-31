@@ -18,12 +18,12 @@ jobs:
     steps:
       - name: Create event JSON file
         run: |
-          mkdir -p event_data # 出力ディレクトリを作成
+          mkdir -p event_data
           echo "${{ toJSON(github.event) }}" > event_data/pull_request_event.json
           echo "github.event data saved to event_data/pull_request_event.json"
 
       - name: Upload event JSON as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pull-request-event-data
           path: event_data/pull_request_event.json
