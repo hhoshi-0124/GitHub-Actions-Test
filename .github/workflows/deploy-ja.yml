@@ -16,11 +16,18 @@ jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub event
+      - name: Create event JSON file
         run: |
-          echo "github.event object:"
-          echo "${{ toJSON(github.event) }}"
-          echo "--- End of github.event object ---"
+          mkdir -p event_data # 出力ディレクトリを作成
+          echo "${{ toJSON(github.event) }}" > event_data/pull_request_event.json
+          echo "github.event data saved to event_data/pull_request_event.json"
+
+      - name: Upload event JSON as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pull-request-event-data
+          path: event_data/pull_request_event.json
+          retention-days: 1
           
       - name: start
         env:
