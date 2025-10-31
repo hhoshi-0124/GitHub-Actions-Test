@@ -8,7 +8,10 @@ on:
 
 run-name: "海外版"
     
-
+concurrency:
+  group: document-prod-en
+  cancel-in-progress: false
+  
 jobs:
   test01:
     runs-on: ubuntu-latest
