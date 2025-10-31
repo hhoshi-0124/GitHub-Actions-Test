@@ -19,7 +19,8 @@ jobs:
       - name: Create event JSON file
         run: |
           mkdir -p event_data
-          echo "${{ toJSON(github.event) }}" > event_data/pull_request_event.json
+          # echo "${{ toJSON(github.event) }}" > event_data/pull_request_event.json
+          echo "${{ toJSON(fromJSON('{\"key1\": \"value1\", \"key2\": 123}')) }}" > event_data/pull_request_event.json
           echo "github.event data saved to event_data/pull_request_event.json"
 
       - name: Upload event JSON as artifact
