@@ -19,14 +19,8 @@ jobs:
             TZ: 'Asia/Tokyo'
         run: echo "GitHub Actions Start($(date '+%Y-%m-%d %H:%M:%S'))"
       - name: Add IP Address for storage account
-        timeout-minutes: 5
-        uses: azure/CLI@v2
-        with:
-          azcliversion: 2.74.0
-          inlineScript: |
-            RESOURCE_GROUP="research-portal"
-            STORAGE_ACCOUNT="fjresearchportaldocs"
-            IP=$(curl -s https://checkip.amazonaws.com/)
+        run: sleep 1
+        
       
       - name: IP Address
         with:
