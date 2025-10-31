@@ -1,4 +1,4 @@
-name: Deploy Ja on Comment with Hashtag
+name: Deploy_Ja_on_Comment_with_Hashtag
 
 on:
   pull_request:
