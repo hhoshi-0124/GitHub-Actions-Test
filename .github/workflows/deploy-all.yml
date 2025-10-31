@@ -1,5 +1,5 @@
 name: Deploy All on Comment with Hashtag
-a
+
 on:
   issue_comment:
     types: [created, edited]
