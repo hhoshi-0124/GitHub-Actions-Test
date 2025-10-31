@@ -19,7 +19,8 @@ jobs:
       - name: Test simple object toJSON
         run: |
           echo "--- Simple object toJSON output ---"
-          echo '${{ toJSON(fromJSON("{\"key1\": \"value1\", \"key2\": 123}")) }}'
+          var1 = fromJSON("{key1: value1, key2: 123}")
+          var2 = toJSON($var1)
           echo "--- END Simple object toJSON output ---"
           
       - name: Create event JSON file
