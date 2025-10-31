@@ -1,8 +1,10 @@
 name: Deploy Ja on Comment with Hashtag
 
 on:
-  issue_comment:
-    types: [created, edited]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 run-name: "国内版(${{ github.event.comment.created_at }})"
     
