@@ -6,11 +6,8 @@ on:
     branches:
       - main
 
-run-name: "国内版(${{ github.event.comment.created_at }})"
+run-name: "国内版"
     
-concurrency:
-  group: document-prod
-  cancel-in-progress: false
 
 jobs:
   test01:
@@ -19,6 +16,11 @@ jobs:
       - name: abc
         run: |
             echo ${{ secrets.TEST_GITHUB_TOKEN }}
+
+      - uses: shogo82148/actions-mutex@main
+        with:
+          token: ${{ secrets.TEST_GITHUB_TOKEN }}
+          key: "my-resource-key"
 
     
       - name: Create event JSON file
