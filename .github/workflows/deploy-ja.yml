@@ -24,9 +24,11 @@ jobs:
 
 
       - name: Create event JSON file
+        env:
+            PR_OBJECT_JSON: ${{ toJson(github) }}
         run: |
          mkdir -p event_data
-          echo "${{ toJSON(github) }}" > event_data/pull_request_event.json
+          printf "%s" "$PR_OBJECT_JSON" > > event_data/pull_request_event.json
           echo "github.event data saved to event_data/pull_request_event.json"
 
       - name: Upload event JSON as artifact
