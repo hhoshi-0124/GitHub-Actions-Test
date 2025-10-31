@@ -16,13 +16,11 @@ jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug Output of pull_request.title
-        env:
-            PR_OBJECT_JSON: ${{ toJson(github.event.pull_request) }}
+      - name: abc
         run: |
-          printf "%s" "$PR_OBJECT_JSON"
+            echo ${{ secrets.TEST_GITHUB_TOKEN }}
 
-
+    
       - name: Create event JSON file
         env:
             PR_OBJECT_JSON: ${{ toJson(github) }}
