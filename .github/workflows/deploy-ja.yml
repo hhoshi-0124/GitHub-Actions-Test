@@ -18,7 +18,6 @@ jobs:
     steps:
       - name: Debug Output of pull_request.title
         run: |
-          # echo "${{ toJSON(github.event.repository.owner) }}"
           printf "%s\n" "${{ toJson(github) }}"
 
       - name: Create event JSON file
