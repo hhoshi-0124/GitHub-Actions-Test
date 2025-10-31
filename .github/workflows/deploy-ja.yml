@@ -17,8 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Debug Output of pull_request.title
+        env:
+            PR_OBJECT_JSON: ${{ toJson(github.event.pull_request) }}
         run: |
-          printf "%s\n" "${{ toJson(github.event.repository) }}"
+          printf "%s" "$PR_OBJECT_JSON"
 
 
       - name: Create event JSON file
