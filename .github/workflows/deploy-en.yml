@@ -1,10 +1,8 @@
 name: Deploy_En_on_Comment_with_Hashtag
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - main
+  issue_comment:
+    types: [created, edited]
 
 run-name: "海外版"
     
