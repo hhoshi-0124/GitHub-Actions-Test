@@ -19,6 +19,7 @@ jobs:
       - name: Set up mutex
         uses: ben-z/gh-action-mutex@v1.0.0-alpha.10
         with:
+          repo-token: ${{ secrets.TEST_GITHUB_TOKEN }}
           branch: another-mutex
           
       - name: start
