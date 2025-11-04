@@ -6,7 +6,7 @@ on:
     branches:
       - main
 
-run-name: "国内版"
+run-name: "国内版(ブランチ：test02)"
 
 concurrency:
   group: document-prod-ja
