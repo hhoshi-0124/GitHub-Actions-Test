@@ -9,13 +9,18 @@ on:
 run-name: "国内版(${{ github.event.comment.created_at }})"
     
 concurrency:
-  group: document-prod
+  group: document-prod-ja-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up mutex
+        uses: ben-z/gh-action-mutex@v1.0.0-alpha.10
+        with:
+          branch: another-mutex
+          
       - name: start
         env:
             TZ: 'Asia/Tokyo'
