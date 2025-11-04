@@ -6,7 +6,7 @@ on:
     branches:
       - main
 
-run-name: "国内版"
+run-name: "国内版(ブランチ：test01)"
 
 concurrency:
   group: document-prod-ja
@@ -16,15 +16,14 @@ jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
-      - name: abc
-        run: |
-            echo ${{ secrets.TEST_GITHUB_TOKEN }}
+      # - name: abc
+      #   run: |
+      #       echo ${{ secrets.TEST_GITHUB_TOKEN }}
 
-      - uses: shogo82148/actions-mutex@v1
-        with:
-          token: ${{ secrets.TEST_GITHUB_TOKEN }}
-          key: "my-resource-key"
-
+      # - uses: shogo82148/actions-mutex@v1
+      #   with:
+      #     token: ${{ secrets.TEST_GITHUB_TOKEN }}
+      #     key: "my-resource-key"
     
       - name: Create event JSON file
         env:
