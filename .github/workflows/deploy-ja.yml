@@ -1,4 +1,4 @@
-name: Deploy Ja on Comment with Hashtag
+name: Deploy_Ja_on_Comment_with_Hashtag
 
 on:
   pull_request:
@@ -6,16 +6,40 @@ on:
     branches:
       - main
 
-run-name: "国内版(${{ github.event.comment.created_at }})"
-    
+run-name: "国内版(ブランチ：test03)"
+
 concurrency:
-  group: document-prod
+  group: document-prod-ja
   cancel-in-progress: false
 
 jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
+      # - name: abc
+      #   run: |
+      #       echo ${{ secrets.TEST_GITHUB_TOKEN }}
+
+      # - uses: shogo82148/actions-mutex@v1
+      #   with:
+      #     token: ${{ secrets.TEST_GITHUB_TOKEN }}
+      #     key: "my-resource-key"
+    
+      - name: Create event JSON file
+        env:
+            PR_OBJECT_JSON: ${{ toJson(github) }}
+        run: |
+         mkdir -p event_data
+          printf "%s" "$PR_OBJECT_JSON" > event_data/pull_request_event.json
+          echo "github.event data saved to event_data/pull_request_event.json"
+
+      - name: Upload event JSON as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pull-request-event-data
+          path: event_data/pull_request_event.json
+          retention-days: 1
+          
       - name: start
         env:
             TZ: 'Asia/Tokyo'
