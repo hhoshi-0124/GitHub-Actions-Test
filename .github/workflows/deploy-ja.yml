@@ -6,12 +6,8 @@ on:
     branches:
       - main
 
-run-name: "国内版(${{ github.event.comment.created_at }})"
+run-name: "国内版(Mutex)"
     
-concurrency:
-  group: document-prod-ja-${{ github.ref_name }}
-  cancel-in-progress: false
-
 jobs:
   test01:
     runs-on: ubuntu-latest
