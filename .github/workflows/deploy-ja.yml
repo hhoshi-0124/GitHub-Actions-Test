@@ -6,16 +6,18 @@ on:
     branches:
       - main
 
-run-name: "国内版(${{ github.event.comment.created_at }})"
+run-name: "国内版(Mutex)"
     
-concurrency:
-  group: document-prod
-  cancel-in-progress: false
-
 jobs:
   test01:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up mutex
+        uses: ben-z/gh-action-mutex@v1.0.0-alpha.10
+        with:
+          repo-token: ${{ secrets.TEST_GITHUB_TOKEN }}
+          branch: another-mutex
+          
       - name: start
         env:
             TZ: 'Asia/Tokyo'
@@ -25,7 +27,7 @@ jobs:
           IP=$(curl -s https://checkip.amazonaws.com/)
           echo "IP Address: $IP"
       - name: wait
-        run: sleep 30
+        run: sleep 60
       - name: end
         env:
             TZ: 'Asia/Tokyo'
